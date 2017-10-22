@@ -76,10 +76,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list.php';
  */
 function load()
 {
-
-	$plugin = new Simple_Staff_List();
+	$plugin = new \Simple_Staff_List();
 	$plugin->run();
-
 }
 
 load();
