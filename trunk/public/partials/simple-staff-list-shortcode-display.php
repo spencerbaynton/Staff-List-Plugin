@@ -94,7 +94,6 @@
 			$title 		= isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
 			$title_formatted = '' !== $title ? '<h4 class="staff-member-position">'.$title.'</h4>' : '';
 			$email 		= isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
-			$phone 		= isset( $custom["_staff_member_phone"][0] ) ? $custom["_staff_member_phone"][0] : '';
 			$bio 		= isset( $custom["_staff_member_bio"][0] ) ? $custom["_staff_member_bio"][0] : '';
 			$email_mailto = '' !== $email ? '<a class="staff-member-email" href="mailto:'.antispambot( $email ).'" title="Email '.$name.'">'.antispambot( $email ).'</a>' : '';
 			$email_nolink = '' !== $email ? antispambot( $email ) : '';
@@ -127,7 +126,7 @@
 			}
 
 			$accepted_single_tags = $default_tags;
-			$replace_single_values = apply_filters( 'sslp_replace_single_values_filter', array($name, $name_slug, $photo_url, $title, $email_nolink, $phone, $bio), $post->ID );
+			$replace_single_values = apply_filters( 'sslp_replace_single_values_filter', array($name, $name_slug, $photo_url, $title, $email_nolink, $bio), $post->ID );
 
 			$accepted_formatted_tags = $default_formatted_tags;
 			$replace_formatted_values = apply_filters( 'sslp_replace_formatted_values_filter', array($name_formatted, $title_formatted, $photo, $email_mailto, $bio_format ), $post->ID );

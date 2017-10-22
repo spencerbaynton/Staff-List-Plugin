@@ -342,7 +342,6 @@ class Simple_Staff_List_Admin {
 			'photo'               => __( 'Photo', $this->plugin_name ),
 			'_staff_member_title' => __( 'Position', $this->plugin_name ),
 			'_staff_member_email' => __( 'Email', $this->plugin_name ),
-			'_staff_member_phone' => __( 'Phone', $this->plugin_name ),
 			'_staff_member_bio'   => __( 'Bio', $this->plugin_name ),
 		);
 
@@ -361,7 +360,6 @@ class Simple_Staff_List_Admin {
 		$custom              = get_post_custom( $post->ID );
 		$_staff_member_title = isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
 		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
-		$_staff_member_phone = isset( $custom["_staff_member_phone"][0] ) ? $custom["_staff_member_phone"][0] : '';
 		?>
 
 		<div class="sslp_admin_wrap">
@@ -389,19 +387,6 @@ class Simple_Staff_List_Admin {
 				       } ?>"
 				       value="<?php if ( $_staff_member_email != '' ) {
 					       echo $_staff_member_email;
-				       } ?>"/>
-			</label>
-			<label for="_staff-member-title">
-				<?php _e( 'Phone:', 'simple-staff-list' ); ?>
-				<input type="text"
-				       name="_staff_member_phone"
-				       id="_staff_member_phone"
-				       placeholder="<?php if ( $_staff_member_phone == '' ) {
-					       _e( 'Staff Member\'s Phone',
-						       'simple-staff-list' );
-				       } ?>"
-				       value="<?php if ( $_staff_member_phone != '' ) {
-					       echo $_staff_member_phone;
 				       } ?>"/>
 			</label>
 		</div>
@@ -465,7 +450,6 @@ class Simple_Staff_List_Admin {
 		$custom              = get_post_custom();
 		$_staff_member_title = isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
 		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
-		$_staff_member_phone = isset( $custom["_staff_member_phone"][0] ) ? $custom["_staff_member_phone"][0] : '';
 		$_staff_member_bio   = isset( $custom["_staff_member_bio"][0] ) ? $custom["_staff_member_bio"][0] : '';
 
 		switch ( $column ) {
@@ -479,9 +463,6 @@ class Simple_Staff_List_Admin {
 				break;
 			case "_staff_member_email":
 				echo '<a href="mailto:' . $_staff_member_email . '">' . $_staff_member_email . '</a>';
-				break;
-			case "_staff_member_phone":
-				echo $_staff_member_phone;
 				break;
 			case "_staff_member_bio":
 				echo $this->get_staff_bio_excerpt( $_staff_member_bio, 10 );
@@ -518,9 +499,6 @@ class Simple_Staff_List_Admin {
 		update_post_meta( $post->ID,
 			'_staff_member_email',
 			isset( $_POST['_staff_member_email'] ) ? $_POST['_staff_member_email'] : '' );
-		update_post_meta( $post->ID,
-			'_staff_member_phone',
-			isset( $_POST['_staff_member_phone'] ) ? $_POST['_staff_member_phone'] : '' );
 		update_post_meta( $post->ID,
 			'_staff_member_fb',
 			isset( $_POST['_staff_member_fb'] ) ? $_POST['_staff_member_fb'] : '' );

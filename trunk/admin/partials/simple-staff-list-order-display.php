@@ -27,7 +27,6 @@
 				<th class="column-name"><?php _e( 'Name', 'simple-staff-list' ); ?></th>
 				<th class="column-title"><?php _e( 'Position', 'simple-staff-list' ); ?></th>
 				<th class="column-email"><?php _e( 'Email', 'simple-staff-list' ); ?></th>
-				<th class="column-phone"><?php _e( 'Phone', 'simple-staff-list' ); ?></th>
 				<th class="column-bio"><?php _e( 'Bio', 'simple-staff-list' ); ?></th>
 			</tr>
 		</thead>
@@ -42,7 +41,6 @@
 				<td class="column-name"><strong><?php the_title(); ?></strong></td>
 				<td class="column-title"><?php echo $custom["_staff_member_title"][0]; ?></td>
 				<td class="column-email"><?php echo $custom["_staff_member_email"][0]; ?></td>
-				<td class="column-phone"><?php echo $custom["_staff_member_phone"][0]; ?></td>
 				<td class="column-bio"><?php   echo Simple_Staff_List_Admin::get_staff_bio_excerpt($custom["_staff_member_bio"][0], 10); ?></td>
 			</tr>
 		<?php endwhile; ?>
@@ -54,7 +52,6 @@
 				<th class="column-name"><?php _e( 'Name', 'simple-staff-list' ); ?></th>
 				<th class="column-title"><?php _e( 'Position', 'simple-staff-list' ); ?></th>
 				<th class="column-email"><?php _e( 'Email', 'simple-staff-list' ); ?></th>
-				<th class="column-phone"><?php _e( 'Phone', 'simple-staff-list' ); ?></th>
 				<th class="column-bio"><?php _e( 'Bio', 'simple-staff-list' ); ?></th>
 			</tr>
 		</tfoot>
