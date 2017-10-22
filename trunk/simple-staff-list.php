@@ -27,6 +27,8 @@ namespace SimpleStaffList;
  * Domain Path:       /languages
  */
 
+require __DIR__ . '/src/Autoloader.php';
+
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
@@ -76,6 +78,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list.php';
  */
 function load()
 {
+	$autoloader = new Autoloader();
+	spl_autoload_register([$autoloader, 'autoload']);
+
 	$plugin = new \Simple_Staff_List();
 	$plugin->run();
 }
