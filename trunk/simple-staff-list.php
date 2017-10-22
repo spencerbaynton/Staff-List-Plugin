@@ -31,7 +31,7 @@ require __DIR__ . '/src/Autoloader.php';
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /**
@@ -56,8 +56,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list.php';
  */
 function load()
 {
-	$autoloader = new Autoloader();
-	spl_autoload_register([$autoloader, 'autoload']);
+    $autoloader = new Autoloader();
+    spl_autoload_register([$autoloader, 'autoload']);
 
     $activator = new Activator();
     register_activation_hook(__FILE__, [$activator, 'activate']);
@@ -65,8 +65,8 @@ function load()
     $deactivator = new Deactivator();
     register_deactivation_hook(__FILE__, [$deactivator, 'deactivate']);
 
-	$plugin = new \Simple_Staff_List();
-	$plugin->run();
+    $plugin = new \Simple_Staff_List();
+    $plugin->run();
 }
 
 load();
