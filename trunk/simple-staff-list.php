@@ -41,27 +41,6 @@ define( 'STAFFLIST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'STAFFLIST_URI', plugin_dir_url( __FILE__ ) );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-simple-staff-list-activator.php
- */
-function activate_simple_staff_list() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list-activator.php';
-	Simple_Staff_List_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-simple-staff-list-deactivator.php
- */
-function deactivate_simple_staff_list() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list-deactivator.php';
-	Simple_Staff_List_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_simple_staff_list' );
-register_deactivation_hook( __FILE__, 'deactivate_simple_staff_list' );
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
@@ -80,6 +59,12 @@ function load()
 {
 	$autoloader = new Autoloader();
 	spl_autoload_register([$autoloader, 'autoload']);
+
+    $activator = new Activator();
+    register_activation_hook(__FILE__, [$activator, 'activate']);
+
+    $deactivator = new Deactivator();
+    register_deactivation_hook(__FILE__, [$deactivator, 'deactivate']);
 
 	$plugin = new \Simple_Staff_List();
 	$plugin->run();
