@@ -92,12 +92,6 @@ class Simple_Staff_List_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'css/simple-staff-list-public.css',
-			array(),
-			$this->version,
-			'all' );
-
 		/**
 		 * Check to see if we should load the external stylesheet
 		 *
