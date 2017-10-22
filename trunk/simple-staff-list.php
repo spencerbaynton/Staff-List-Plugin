@@ -74,10 +74,12 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list.php';
  *
  * @since    1.17
  */
-function run_simple_staff_list() {
+function load()
+{
 
 	$plugin = new Simple_Staff_List();
 	$plugin->run();
 
 }
-run_simple_staff_list();
+
+load();
