@@ -50,7 +50,6 @@ if ( !empty($_POST) && check_admin_referer( 'staff-member-options', 'staff-list-
 
 
 $output = '<div class="wrap sslp-options">';
-	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div>';
 	$output .= '<h2>' . __( 'Simple Staff List' , 'simple-staff-list' ) . '</h2>';
 	$output .= '<h2>' . __( 'Options', 'simple-staff-list' ) . '</h2>';
 

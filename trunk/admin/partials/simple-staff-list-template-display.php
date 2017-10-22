@@ -86,7 +86,7 @@
 	}
 
 	$output  = '<div class="wrap sslp-template">';
-		$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Simple Staff List', 'simple-staff-list' ) . '</h2>';
+		$output .= '<h2>' . __( 'Simple Staff List', 'simple-staff-list' ) . '</h2>';
 		$output .= '<div class="sslp-content sslp-column">';
 			$output .= '<h2>Templates</h2>';
 		    $output .= '<h4>' . __( 'Accepted Template Tags', 'simple-staff-list') . ' <strong>(' . __('UNFORMATTED', 'simple-staff-list') . ')</strong></h4>';

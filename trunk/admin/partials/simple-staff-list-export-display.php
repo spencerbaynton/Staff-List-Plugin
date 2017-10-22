@@ -12,7 +12,7 @@
  */
 
 $output  = '<div class="wrap sslp-template">';
-	$output .= '<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div><h2>' . __( 'Simple Staff List', 'simple-staff-list' ) . '</h2>';
+	$output .= '<h2>' . __( 'Simple Staff List', 'simple-staff-list' ) . '</h2>';
 	$output .= '<div class="sslp-content sslp-column">';
 		$output .= '<h2>' . __( 'Export', 'simple-staff-list' ) .  '</h2>';
 		$output .= '<p>' . __( 'Click the export button below to generate a CSV download of your staff member data.', 'simple-staff-list' ) . '</p>';

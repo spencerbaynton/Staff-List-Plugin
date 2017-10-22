@@ -13,7 +13,6 @@
  */
 ?>
 <div class="wrap sslp-usage">
-	<div id="icon-edit" class="icon32 icon32-posts-staff-member"><br></div>
 	<h2><?php _e( 'Simple Staff List', 'simple-staff-list' ); ?></h2>
 
 	<h2><?php _e( 'Usage', 'simple-staff-list' ); ?></h2>
