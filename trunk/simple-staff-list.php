@@ -1,5 +1,7 @@
 <?php
 
+namespace SimpleStaffList;
+
 /**
  * The plugin bootstrap file
  *
