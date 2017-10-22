@@ -28,10 +28,8 @@ class Simple_Staff_List_Activator {
 	 * Sets up initial plugin option contents.
 	 *
 	 * @since    1.17
-	 *
-	 * @param    $is_forced
 	 */
-	public static function activate( $is_forced = false ) {
+	public static function activate() {
 		$default_template = '
 		[staff_loop]
 			<img class="staff-member-photo" src="[staff-photo-url]" alt="[staff-name] : [staff-position]">
