@@ -341,7 +341,6 @@ class Simple_Staff_List_Admin {
 			'title'               => __( 'Name', $this->plugin_name ),
 			'photo'               => __( 'Photo', $this->plugin_name ),
 			'_staff_member_title' => __( 'Position', $this->plugin_name ),
-			'_staff_member_email' => __( 'Email', $this->plugin_name ),
 			'_staff_member_bio'   => __( 'Bio', $this->plugin_name ),
 		);
 
@@ -359,7 +358,6 @@ class Simple_Staff_List_Admin {
 
 		$custom              = get_post_custom( $post->ID );
 		$_staff_member_title = isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
-		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
 		?>
 
 		<div class="sslp_admin_wrap">
@@ -374,19 +372,6 @@ class Simple_Staff_List_Admin {
 				       } ?>"
 				       value="<?php if ( $_staff_member_title != '' ) {
 					       echo $_staff_member_title;
-				       } ?>"/>
-			</label>
-			<label for="_staff-member-email">
-				<?php _e( 'Email:', 'simple-staff-list' ); ?>
-				<input type="text"
-				       name="_staff_member_email"
-				       id="_staff_member_email"
-				       placeholder="<?php if ( $_staff_member_email == '' ) {
-					       _e( 'Staff Member\'s Email',
-						       'simple-staff-list' );
-				       } ?>"
-				       value="<?php if ( $_staff_member_email != '' ) {
-					       echo $_staff_member_email;
 				       } ?>"/>
 			</label>
 		</div>
@@ -449,7 +434,6 @@ class Simple_Staff_List_Admin {
 
 		$custom              = get_post_custom();
 		$_staff_member_title = isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
-		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
 		$_staff_member_bio   = isset( $custom["_staff_member_bio"][0] ) ? $custom["_staff_member_bio"][0] : '';
 
 		switch ( $column ) {
@@ -460,9 +444,6 @@ class Simple_Staff_List_Admin {
 				break;
 			case "_staff_member_title":
 				echo $_staff_member_title;
-				break;
-			case "_staff_member_email":
-				echo '<a href="mailto:' . $_staff_member_email . '">' . $_staff_member_email . '</a>';
 				break;
 			case "_staff_member_bio":
 				echo $this->get_staff_bio_excerpt( $_staff_member_bio, 10 );
@@ -496,9 +477,6 @@ class Simple_Staff_List_Admin {
 		update_post_meta( $post->ID,
 			'_staff_member_title',
 			isset( $_POST['_staff_member_title'] ) ? $_POST['_staff_member_title'] : '' );
-		update_post_meta( $post->ID,
-			'_staff_member_email',
-			isset( $_POST['_staff_member_email'] ) ? $_POST['_staff_member_email'] : '' );
 
 	}
 

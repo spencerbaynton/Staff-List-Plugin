@@ -37,7 +37,6 @@ class Simple_Staff_List_Activator {
 				[staff-name-formatted]
 				[staff-position-formatted]
 				[staff-bio-formatted]
-				[staff-email-link]
 			</div>
 		[/staff_loop]';
 
@@ -78,9 +77,6 @@ class Simple_Staff_List_Activator {
 			img.staff-member-photo {
 				float: left;
 			}
-			/*  [staff-email-link]  */
-			.staff-member-email {
-			}
 			/*  [staff-name-formatted]  */
 			div.staff-member-listing h3.staff-member-name {
 				margin: 0;
@@ -106,7 +102,6 @@ class Simple_Staff_List_Activator {
 			'[staff-name-slug]',
 			'[staff-photo-url]',
 			'[staff-position]',
-			'[staff-email]',
 			'[staff-bio]'
 		);
 		$default_tag_string = implode( ", ", $default_tags );
@@ -115,7 +110,6 @@ class Simple_Staff_List_Activator {
 			'[staff-name-formatted]',
 			'[staff-position-formatted]',
 			'[staff-photo]',
-			'[staff-email-link]',
 			'[staff-bio-formatted]'
 		);
 		$default_formatted_tag_string = implode( ", ", $default_formatted_tags );

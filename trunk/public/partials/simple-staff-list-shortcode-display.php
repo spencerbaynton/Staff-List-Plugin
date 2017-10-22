@@ -93,10 +93,7 @@
 			$name_slug	= basename(get_permalink());
 			$title 		= isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
 			$title_formatted = '' !== $title ? '<h4 class="staff-member-position">'.$title.'</h4>' : '';
-			$email 		= isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
 			$bio 		= isset( $custom["_staff_member_bio"][0] ) ? $custom["_staff_member_bio"][0] : '';
-			$email_mailto = '' !== $email ? '<a class="staff-member-email" href="mailto:'.antispambot( $email ).'" title="Email '.$name.'">'.antispambot( $email ).'</a>' : '';
-			$email_nolink = '' !== $email ? antispambot( $email ) : '';
 
 			if ( has_post_thumbnail() ) {
 
