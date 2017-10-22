@@ -134,12 +134,6 @@
 		    $output .= wp_nonce_field('staff-member-template', 'staff-list-template');
 		    $output .= '</form>';
 	    $output .= '</div>';
-	    $output .= '<div class="sslp-sidebar sslp-column last">';
-			// Get the sidebar
-			ob_start();
-			include_once( 'simple-staff-list-admin-sidebar.php' );
-			$output .= ob_get_clean();
-		$output .= '</div>';
 	$output .= '</div>';
 
     echo $output;

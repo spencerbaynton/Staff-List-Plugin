@@ -40,7 +40,4 @@
 
 		<p><?php _e( 'To display your Staff List just use the shortcode <code>[simple-staff-list]</code> in any page or post. This will output all staff members according to the template options set <a href="edit.php?post_type=staff-member&page=staff-member-template" title="Edit the Simple Staff List template.">here', 'simple-staff-list' ); ?></a>.</p>
 	</div>
-	<div class="sslp-sidebar sslp-column last">
-		<?php include_once( 'simple-staff-list-admin-sidebar.php' ); ?>
-	</div>
 </div>

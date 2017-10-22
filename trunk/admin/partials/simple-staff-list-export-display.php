@@ -24,12 +24,6 @@ $output  = '<div class="wrap sslp-template">';
 
 		$output .= '<a href="#" class="button button-primary export-button">' . __( 'Export Staff Members', 'simple-staff-list' ) . '</a>';
 	$output .= '</div>';
-    $output .= '<div class="sslp-sidebar sslp-column last">';
-		// Get the sidebar
-		ob_start();
-		include_once( 'simple-staff-list-admin-sidebar.php' );
-		$output .= ob_get_clean();
-	$output .= '</div>';
 $output .= '</div>';
 
 echo $output;
