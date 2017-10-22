@@ -97,7 +97,7 @@ class Simple_Staff_List_Public {
 			array(),
 			$this->version,
 			'all' );
-			
+
 		/**
 		 * Check to see if we should load the external stylesheet
 		 *
@@ -162,9 +162,9 @@ class Simple_Staff_List_Public {
 		} else {
 			$name = get_option( '_staff_listing_custom_name_plural' );
 		}
-		
+
 		#TODO Instead of using "Staff" all through here...try to use the custom slug set in options.
-		
+
 		// Set up post type options
 		$labels = array(
 			'name'                	=> $name,
@@ -231,27 +231,27 @@ class Simple_Staff_List_Public {
 			) );
 
 	}
-	
+
 	/**
 	 * Maybe flush rewrite rules
 	 *
 	 * @since 2.0
 	 */
 	public function maybe_flush_rewrite_rules() {
-		
+
 		if ( get_option( '_staff_listing_flush_rewrite_rules_flag' ) ) {
-			
+
 			// Flush the rewrite rules
 	        flush_rewrite_rules();
-	        
+
 	        // Remove our flag
 	        delete_option( '_staff_listing_flush_rewrite_rules_flag' );
-	        
+
 	    }
-	    
+
 	}
-	
-	
+
+
 	/**
 	 * Register plugin shortcode(s)
 	 *

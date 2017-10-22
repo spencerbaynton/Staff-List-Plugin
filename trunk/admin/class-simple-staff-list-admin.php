@@ -102,13 +102,13 @@ class Simple_Staff_List_Admin {
 		 */
 
 		if ( isset($_GET['post_type']) && $_GET['post_type'] == 'staff-member' ) {
-						
+
 			wp_enqueue_script( $this->plugin_name,
 				plugin_dir_url( __FILE__ ) . 'js/simple-staff-list-admin.js',
 				array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ),
 				$this->version,
 				false );
-				
+
 		}
 
 	}
@@ -119,13 +119,13 @@ class Simple_Staff_List_Admin {
 	 * @since   2.0
 	 */
 	public function ajax_flush_rewrite_rules() {
-		
+
 		flush_rewrite_rules();
-		
+
 		wp_send_json_success();
-		
+
 	}
-	
+
 	/**
 	 * Register admin menu items.
 	 *
@@ -142,7 +142,7 @@ class Simple_Staff_List_Admin {
 			'staff-member-order',
 			array( $this, 'display_order_page' )
 		);
-		
+
 		// Templates page
 		add_submenu_page(
 			'edit.php?post_type=staff-member',
@@ -152,7 +152,7 @@ class Simple_Staff_List_Admin {
 			'staff-member-template',
 			array( $this, 'display_templates_page' )
 		);
-		
+
 		// Usage page
 		add_submenu_page(
 			'edit.php?post_type=staff-member',
@@ -162,7 +162,7 @@ class Simple_Staff_List_Admin {
 			'staff-member-usage',
 			array( $this, 'display_usage_page' )
 		);
-		
+
 		// Options page
 		add_submenu_page(
 			'edit.php?post_type=staff-member',
@@ -172,7 +172,7 @@ class Simple_Staff_List_Admin {
 			'staff-member-options',
 			array( $this, 'display_options_page' )
 		);
-		
+
 		// Export
 		add_submenu_page(
 			'edit.php?post_type=staff-member',
@@ -193,7 +193,7 @@ class Simple_Staff_List_Admin {
 	public function display_order_page() {
 		include_once( 'partials/simple-staff-list-order-display.php' );
 	}
-	
+
 	/**
 	 * Display Template page content.
 	 *
@@ -202,7 +202,7 @@ class Simple_Staff_List_Admin {
 	public function display_templates_page() {
 		include_once( 'partials/simple-staff-list-template-display.php' );
 	}
-	
+
 	/**
 	 * Display Usage page content.
 	 *
@@ -211,7 +211,7 @@ class Simple_Staff_List_Admin {
 	public function display_usage_page() {
 		include_once( 'partials/simple-staff-list-usage-display.php' );
 	}
-	
+
 	/**
 	 * Display Usage page content.
 	 *
@@ -220,7 +220,7 @@ class Simple_Staff_List_Admin {
 	public function display_options_page() {
 		include_once( 'partials/simple-staff-list-options-display.php' );
 	}
-	
+
 	/**
 	 * Display Usage page content.
 	 *
@@ -279,27 +279,27 @@ class Simple_Staff_List_Admin {
 	public function staff_member_featured_image_text() {
 
 	}
-	
+
 	/**
 	 * Add theme support for post thumbnails
 	 *
 	 * @since 2.0
 	 */
 	public function add_featured_image_support() {
-		
+
 		$supportedTypes = get_theme_support( 'post-thumbnails' );
-		
+
 		if ( $supportedTypes === false ) {
-			
-			add_theme_support( 'post-thumbnails', 'staff-member' );               
+
+			add_theme_support( 'post-thumbnails', 'staff-member' );
 
 		} else if ( is_array( $supportedTypes ) ) {
-			
+
 			$supportedTypes[0][] = 'staff-member';
 			add_theme_support( 'post-thumbnails', $supportedTypes[0] );
-			
+
 		}
-		
+
 	}
 
 	/**
@@ -587,7 +587,7 @@ class Simple_Staff_List_Admin {
 		return apply_filters( 'the_excerpt', $text );
 
 	}
-	
+
 	/**
 	 * Update Staff Member order.
 	 *
@@ -597,10 +597,10 @@ class Simple_Staff_List_Admin {
 	 */
 	public function update_staff_member_order() {
 		global $wpdb;
-	
+
 		$post_type     = $_POST['postType'];
 		$order        = $_POST['order'];
-	
+
 		/**
 		*    Expect: $sorted = array(
 		*                menu_order => post-XX
@@ -612,10 +612,10 @@ class Simple_Staff_List_Admin {
 			$menu_order     = intval($menu_order);
 			wp_update_post( array( 'ID' => $post_id, 'menu_order' => $menu_order ) );
 		}
-	
+
 		die( '1' );
 	}
-	
+
 	/**
 	 * Staff Member Export
 	 *
@@ -624,48 +624,48 @@ class Simple_Staff_List_Admin {
 	 * @return mixed
 	 */
 	public function staff_member_export() {
-		
+
 		$access_type = get_filesystem_method();
-		
+
 		$args = array(
 			'post_type' => 'staff-member',
 			'posts_per_page' => -1,
 			'post_status' => 'publish'
 		);
-		
+
 		$staff_query = new WP_Query( $args );
-		
+
 		if ( $staff_query->have_posts() ) :
-			
+
 			$csv_headers = array();
 			$csv_data = array();
-			
+
 			while ( $staff_query->have_posts() ) : $staff_query->the_post();
-				
+
 				$custom = get_post_custom();
-				
+
 				// Setup our CSV Header line if we haven't already
 				if ( ! $csv_headers ) {
 					$csv_headers[] = 'Staff Member Name';
 					$csv_headers[] = 'Staff Member Image URL';
-					
+
 					foreach ( $custom as $key => $value ) {
 						if ( strpos( $key, '_staff_member_' ) !== false ) {
-							
+
 							$new_key = trim( str_replace('_', ' ', $key) );
-							
+
 							$csv_headers[] = ucwords($new_key);
-							
+
 						}
 					}
-					
+
 					$csv_data[] = $csv_headers;
-					
+
 				}
-				
+
 				// Setup our data line for this Staff Member
 				$csv_new_line = array( get_the_title() );
-				
+
 				// Get the post image
 				$image_obj = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', false);
 				if ( false !== $image_obj ) {
@@ -673,56 +673,56 @@ class Simple_Staff_List_Admin {
 				} else {
 					$csv_new_line[] = '';
 				}
-				
+
 				// Get the post custom data
 				foreach ( $custom as $key => $value ) {
 					if ( strpos( $key, '_staff_member_' ) !== false ) {
-						
+
 						$new_value = $value[0];
-						
+
 						$csv_new_line[] = trim($new_value);
-						
+
 					}
 				}
-				
+
 				// Add a new line to the end of our data
 				$csv_data[] = $csv_new_line;
-				
-			
+
+
 			endwhile;
-			
+
 			$csv_str_out = '';
 			foreach ( $csv_data as $line ) {
-				
+
 				$i = 1;
 				foreach ( $line as $data ) {
 					$data_line_out = '"' . str_replace('"', '""', $data ) . '"';
-					
+
 					// Replace the newlines with <br> tags
 					$csv_str_out .= str_replace( array( "\r\n", "\r", "\n" ), "<br/>", $data_line_out);
-					
+
 					if ( $i != count( $line ) )
 						$csv_str_out .= ',';
-					
+
 					$i++;
 				}
-				
+
 				$csv_str_out .= "\n";
-				
+
 			}
-			
-			
+
+
 			if ( 'direct' == $access_type ) {
 				// Save the file
 				$creds = request_filesystem_credentials();
-				
+
 				if ( ! WP_filesystem($creds) )
 					wp_send_json_error( 'Problem accessing WP File System' );
-				
+
 				global $wp_filesystem;
-				
+
 				$uploads = wp_upload_dir();
-				
+
 				// Create the sslp directory in uploads if we need to
 				if ( ! is_dir( $uploads['basedir'] . '/sslp' ) ) {
 					$wp_filesystem->mkdir( $uploads['basedir'] . '/sslp' );
@@ -731,29 +731,29 @@ class Simple_Staff_List_Admin {
 					// Clean out any files that are in there...we're not backing up these exports, although that could be a feature later on
 					$path = $uploads['basedir'] . '/sslp/';
 					$files = $wp_filesystem->dirlist($path);
-						
+
 					foreach ( $files as $file ) {
 						if ( false !== strpos( $file['name'], 'staff-member-export-' ) )
 							$wp_filesystem->delete( $path . $file['name'] );
 					}
 				}
-				
+
 				// Save our file
 				$wp_filesystem->put_contents(
 					$uploads['basedir'] . '/sslp/staff-member-export-' . date( 'Y-m-d-G-i' ) . '.csv',
 					$csv_str_out,
 					FS_CHMOD_FILE
 				);
-					
+
 				wp_send_json_success( array( 'created_file' => true, 'url' => $uploads['baseurl'] . '/sslp/staff-member-export-' . date( 'Y-m-d-G-i' ) . '.csv' ) );
 			} else {
 				wp_send_json_success( array( 'created_file' => false, 'content' => $csv_str_out, 'filename' => 'staff-member-export-' . date( 'Y-m-d-G-i' ) . '.csv' ) );
 			}
-			
+
 		endif;
-		
+
 		wp_send_json_error( 'No data to export.' );
-		
+
 	}
 
 }

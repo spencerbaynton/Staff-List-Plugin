@@ -157,15 +157,15 @@ td.column-order img {
 	.sslp-column {
 	    float: left;
 	}
-	
+
 	.sslp-column.last {
 	    float: right;
 	}
-	
+
 	.sslp-content {
 	    width: 60%;
 	}
-	
+
 	.sslp-sidebar {
 		width: 35%;
 	}
