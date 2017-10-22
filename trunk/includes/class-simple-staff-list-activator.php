@@ -166,9 +166,9 @@ class Simple_Staff_List_Activator {
 
 		// Maybe add flag to signal the need to flush the rewrite rules
 		if ( ! get_option( '_staff_listing_flush_rewrite_rules_flag' ) ) {
-			
+
 			add_option( '_staff_listing_flush_rewrite_rules_flag', true );
-			
+
 		}
 	}
 
