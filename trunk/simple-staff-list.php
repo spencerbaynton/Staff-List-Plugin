@@ -37,7 +37,6 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Define constants for the plugin
  */
-define( 'STAFFLIST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'STAFFLIST_URI', plugin_dir_url( __FILE__ ) );
 
 /**
