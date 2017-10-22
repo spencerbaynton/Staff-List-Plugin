@@ -362,7 +362,6 @@ class Simple_Staff_List_Admin {
 		$_staff_member_title = isset( $custom["_staff_member_title"][0] ) ? $custom["_staff_member_title"][0] : '';
 		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
 		$_staff_member_phone = isset( $custom["_staff_member_phone"][0] ) ? $custom["_staff_member_phone"][0] : '';
-		$_staff_member_fb    = isset( $custom["_staff_member_fb"][0] ) ? $custom["_staff_member_fb"][0] : '';
 		?>
 
 		<div class="sslp_admin_wrap">
@@ -403,19 +402,6 @@ class Simple_Staff_List_Admin {
 				       } ?>"
 				       value="<?php if ( $_staff_member_phone != '' ) {
 					       echo $_staff_member_phone;
-				       } ?>"/>
-			</label>
-			<label for="_staff-member-fb">
-				<?php _e( 'Facebook URL:', 'simple-staff-list' ); ?>
-				<input type="text"
-				       name="_staff_member_fb"
-				       id="_staff_member_fb"
-				       placeholder="<?php if ( $_staff_member_fb == '' ) {
-					       _e( 'Staff Member\'s Facebook URL',
-						       'simple-staff-list' );
-				       } ?>"
-				       value="<?php if ( $_staff_member_fb != '' ) {
-					       echo $_staff_member_fb;
 				       } ?>"/>
 			</label>
 		</div>

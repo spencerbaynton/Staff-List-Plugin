@@ -108,8 +108,7 @@ class Simple_Staff_List_Activator {
 			'[staff-position]',
 			'[staff-email]',
 			'[staff-phone]',
-			'[staff-bio]',
-			'[staff-facebook]'
+			'[staff-bio]'
 		);
 		$default_tag_string = implode( ", ", $default_tags );
 
