@@ -173,16 +173,6 @@ class Simple_Staff_List_Admin {
 			array( $this, 'display_options_page' )
 		);
 
-		// Export
-		add_submenu_page(
-			'edit.php?post_type=staff-member',
-			__( 'Simple Staff List Export', $this->plugin_name ),
-			__( 'Export', $this->plugin_name ),
-			'export',
-			'staff-member-export',
-			array( $this, 'display_export_page' )
-		);
-
 	}
 
 	/**
@@ -219,15 +209,6 @@ class Simple_Staff_List_Admin {
 	 */
 	public function display_options_page() {
 		include_once( 'partials/simple-staff-list-options-display.php' );
-	}
-
-	/**
-	 * Display Usage page content.
-	 *
-	 * @since   1.20
-	 */
-	public function display_export_page() {
-		include_once( 'partials/simple-staff-list-export-display.php' );
 	}
 
 	/**
