@@ -129,12 +129,6 @@ class Simple_Staff_List_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name,
-			plugin_dir_url( __FILE__ ) . 'js/simple-staff-list-public.js',
-			array( 'jquery' ),
-			$this->version,
-			false );
-
 	}
 
 	/**
