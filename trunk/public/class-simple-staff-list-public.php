@@ -199,13 +199,10 @@ class Simple_Staff_List_Public {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => 100,
+			'menu_icon'          => 'dashicons-groups',
 			'rewrite'            => array( 'slug' => $slug, 'with_front' => false ),
 			'supports'           => array( 'title', 'thumbnail', 'excerpt' ),
 		);
-
-		if ( version_compare( $wp_version, '3.8', '>=' ) ) {
-			$args['menu_icon'] = 'dashicons-groups';
-		}
 
 		// Register post type
 		register_post_type( 'staff-member', $args );
