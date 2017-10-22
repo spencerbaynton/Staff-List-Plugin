@@ -499,12 +499,6 @@ class Simple_Staff_List_Admin {
 		update_post_meta( $post->ID,
 			'_staff_member_email',
 			isset( $_POST['_staff_member_email'] ) ? $_POST['_staff_member_email'] : '' );
-		update_post_meta( $post->ID,
-			'_staff_member_fb',
-			isset( $_POST['_staff_member_fb'] ) ? $_POST['_staff_member_fb'] : '' );
-		update_post_meta( $post->ID,
-			'_staff_member_tw',
-			isset( $_POST['_staff_member_tw'] ) ? $_POST['_staff_member_tw'] : '' );
 
 	}
 
