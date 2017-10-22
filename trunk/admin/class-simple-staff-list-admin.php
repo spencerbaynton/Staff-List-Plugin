@@ -363,7 +363,6 @@ class Simple_Staff_List_Admin {
 		$_staff_member_email = isset( $custom["_staff_member_email"][0] ) ? $custom["_staff_member_email"][0] : '';
 		$_staff_member_phone = isset( $custom["_staff_member_phone"][0] ) ? $custom["_staff_member_phone"][0] : '';
 		$_staff_member_fb    = isset( $custom["_staff_member_fb"][0] ) ? $custom["_staff_member_fb"][0] : '';
-		$_staff_member_tw    = isset( $custom["_staff_member_tw"][0] ) ? $custom["_staff_member_tw"][0] : '';
 		?>
 
 		<div class="sslp_admin_wrap">
@@ -417,19 +416,6 @@ class Simple_Staff_List_Admin {
 				       } ?>"
 				       value="<?php if ( $_staff_member_fb != '' ) {
 					       echo $_staff_member_fb;
-				       } ?>"/>
-			</label>
-			<label for="_staff-member-tw">
-				<?php _e( 'Twitter Username:', 'simple-staff-list' ); ?>
-				<input type="text"
-				       name="_staff_member_tw"
-				       id="_staff_member_tw"
-				       placeholder="<?php if ( $_staff_member_tw == '' ) {
-					       _e( 'Staff Member\'s Twitter Name',
-						       'simple-staff-list' );
-				       } ?>"
-				       value="<?php if ( $_staff_member_tw != '' ) {
-					       echo $_staff_member_tw;
 				       } ?>"/>
 			</label>
 		</div>
