@@ -394,8 +394,6 @@ class Simple_Staff_List_Admin {
 			) );
 		?>
 
-		<p class="sslp-note">**Note: HTML is allowed.</p>
-
 		<?php wp_nonce_field( 'sslp_post_nonce', 'sslp_add_edit_staff_member_noncename' ) ?>
 
 		<?php
