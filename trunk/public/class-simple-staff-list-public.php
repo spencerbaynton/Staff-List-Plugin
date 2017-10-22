@@ -176,16 +176,16 @@ class Simple_Staff_List_Public {
 		);
 
 		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'query_var'          => true,
-			'rewrite'            => true,
-			'capability_type'    => 'page',
-			'has_archive'        => true,
-			'menu_position'      => 100,
-			'menu_icon'          => 'dashicons-groups',
-			'rewrite'            => array( 'slug' => $slug, 'with_front' => false ),
-			'supports'           => array( 'title', 'thumbnail', 'excerpt' ),
+			'labels'          => $labels,
+			'public'          => true,
+			'query_var'       => true,
+			'rewrite'         => true,
+			'capability_type' => 'page',
+			'has_archive'     => true,
+			'menu_position'   => 100,
+			'menu_icon'       => 'dashicons-groups',
+			'rewrite'         => array( 'slug' => $slug, 'with_front' => false ),
+			'supports'        => array( 'title', 'thumbnail', 'excerpt' ),
 		);
 
 		// Register post type
