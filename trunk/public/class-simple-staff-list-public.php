@@ -163,7 +163,6 @@ class Simple_Staff_List_Public {
 			'new_item'            	=> __( 'New Staff Member', $this->plugin_name ),
 			'view_item'           	=> __( 'View Staff Member', $this->plugin_name ),
 			'search_items'        	=> __( 'Search Staff Members', $this->plugin_name ),
-			'exclude_from_search' 	=> true,
 			'not_found'           	=> __( 'No staff members found', $this->plugin_name ),
 			'not_found_in_trash'  	=> __( 'No staff members found in Trash', $this->plugin_name ),
 			'parent_item_colon'   	=> '',
@@ -176,16 +175,17 @@ class Simple_Staff_List_Public {
 		);
 
 		$args = array(
-			'labels'          => $labels,
-			'public'          => true,
-			'query_var'       => true,
-			'rewrite'         => true,
-			'capability_type' => 'page',
-			'has_archive'     => true,
-			'menu_position'   => 100,
-			'menu_icon'       => 'dashicons-groups',
-			'rewrite'         => array( 'slug' => $slug, 'with_front' => false ),
-			'supports'        => array( 'title', 'thumbnail', 'excerpt' ),
+			'labels'              => $labels,
+			'public'              => true,
+			'exclude_from_search' => true,
+			'query_var'           => true,
+			'rewrite'             => true,
+			'capability_type'     => 'page',
+			'has_archive'         => true,
+			'menu_position'       => 100,
+			'menu_icon'           => 'dashicons-groups',
+			'rewrite'             => array( 'slug' => $slug, 'with_front' => false ),
+			'supports'            => array( 'title', 'thumbnail', 'excerpt' ),
 		);
 
 		// Register post type
