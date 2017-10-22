@@ -170,37 +170,3 @@ td.column-order img {
 		width: 35%;
 	}
 }
-
-/*
-	CPT Icon Styles
-*/
-
-/* Admin Menu - 16px */
-#menu-posts-staff-member .wp-menu-image {
-    background: url('../img/staff-list-icon.png') no-repeat 5px 5px !important;
-    background: url('../img/staff-list-icon.svg') no-repeat 5px 5px !important;
-    background-size: 70% !important;
-    opacity: .5;
-}
-#menu-posts-staff-member:hover .wp-menu-image, #menu-posts-staff-member.wp-has-current-submenu .wp-menu-image {
-    b--ackground-position: 6px -26px !important;
-    opacity: 1;
-}
-
-#menu-posts-staff-member.wp-has-current-submenu .wp-menu-image {
-    background: url('../img/staff-list-icon-lighter.png') no-repeat 5px 5px !important;
-    background: url('../img/staff-list-icon-lighter.svg') no-repeat 5px 5px !important;
-    background-size: 70% !important;
-}
-body[class*="branch-3-8"] #menu-posts-staff-member .wp-menu-image,
-body[class*="branch-4"] #menu-posts-staff-member .wp-menu-image {
-    background-image: none !important;
-}
-/* Post Screen - 32px */
-.icon32-posts-staff-member {
-    background: url('../img/staff-list-icon.png') no-repeat left top !important;
-    background: url('../img/staff-list-icon.svg') no-repeat left top !important;
-    background-size: 100% !important;
-    height: 32px;
-    width: 32px;
-}
