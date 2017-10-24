@@ -51,6 +51,8 @@ function init()
 {
     $group = new Group();
     $group->registerFor('staff-member');
+
+    add_filter('term_updated_messages', [$group, 'termUpdatedMessages'], 10, 1);
 }
 
 /**

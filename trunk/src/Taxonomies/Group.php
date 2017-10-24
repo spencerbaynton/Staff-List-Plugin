@@ -28,4 +28,21 @@ class Group extends Taxonomy
             'labels'       => $labels
         ]);
     }
+
+    /**
+     * @param array $messages
+     */
+    public function termUpdatedMessages($messages)
+    {
+        $messages[$this->taxonomy] = [
+            1 => __('Group added.'),
+            2 => __('Group deleted.'),
+            3 => __('Group updated.'),
+            4 => __('Group not added.'),
+            5 => __('Group not updated.'),
+            6 => __('Groups deleted.')
+        ];
+
+        return $messages;
+    }
 }
