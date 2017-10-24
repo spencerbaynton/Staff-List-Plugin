@@ -5,18 +5,18 @@ namespace SimpleStaffList;
 class Taxonomy
 {
     /** @var string */
-    protected $name;
+    protected $taxonomy;
 
     /**
-     * @param string $name
+     * @param string $taxonomy
      * @param array  $args
      */
-    public function __construct($name, $args)
+    public function __construct($taxonomy, $args)
     {
-        $this->name = sanitize_key($name);
+        $this->taxonomy = sanitize_key($taxonomy);
 
         // TODO handle WP_Error
-        register_taxonomy($this->name, [], $args);
+        register_taxonomy($this->taxonomy, [], $args);
     }
 
     /**
@@ -25,13 +25,13 @@ class Taxonomy
     public function registerFor($object_type)
     {
         // TODO handle false
-        register_taxonomy_for_object_type($this->name, $object_type);
+        register_taxonomy_for_object_type($this->taxonomy, $object_type);
     }
 
     public function unregister()
     {
         // TODO handle WP_Error
-        unregister_taxonomy($this->name);
+        unregister_taxonomy($this->taxonomy);
     }
 
     /**
@@ -40,6 +40,6 @@ class Taxonomy
     public function unregisterFor($object_type)
     {
         // TODO handle false
-        unregister_taxonomy_for_object_type($this->name, $object_type);
+        unregister_taxonomy_for_object_type($this->taxonomy, $object_type);
     }
 }
