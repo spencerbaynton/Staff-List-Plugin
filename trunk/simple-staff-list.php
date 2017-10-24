@@ -2,6 +2,8 @@
 
 namespace SimpleStaffList;
 
+use SimpleStaffList\Taxonomies\Group;
+
 /**
  * The plugin bootstrap file
  *
@@ -45,6 +47,12 @@ define( 'STAFFLIST_URI', plugin_dir_url( __FILE__ ) );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-staff-list.php';
 
+function init()
+{
+    $group = new Group();
+    $group->registerFor('staff-member');
+}
+
 /**
  * Begins execution of the plugin.
  *
@@ -67,6 +75,8 @@ function load()
 
     $plugin = new \Simple_Staff_List();
     $plugin->run();
+
+    add_action('init', __NAMESPACE__ . '\\init', 10, 0);
 }
 
 load();

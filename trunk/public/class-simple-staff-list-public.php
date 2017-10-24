@@ -191,26 +191,6 @@ class Simple_Staff_List_Public {
 		// Register post type
 		register_post_type( 'staff-member', $args );
 
-		$group_labels = array(
-			'name'              => _x( 'Groups', 'taxonomy general name', $this->plugin_name ),
-			'singular_name'     => _x( 'Group', 'taxonomy singular name', $this->plugin_name ),
-			'search_items'      => __( 'Search Groups', $this->plugin_name ),
-			'all_items'         => __( 'All Groups', $this->plugin_name ),
-			'parent_item'       => __( 'Parent Group', $this->plugin_name ),
-			'parent_item_colon' => __( 'Parent Group:', $this->plugin_name ),
-			'edit_item'         => __( 'Edit Group', $this->plugin_name ),
-			'update_item'       => __( 'Update Group', $this->plugin_name ),
-			'add_new_item'      => __( 'Add New Group', $this->plugin_name ),
-			'new_item_name'     => __( 'New Group Name', $this->plugin_name ),
-		);
-		register_taxonomy( 'staff-member-group', array( 'staff-member' ), array(
-				'hierarchical' => true,
-				'labels' => $group_labels, /* NOTICE: Here is where the $labels variable is used */
-				'show_ui' => true,
-				'query_var' => true,
-				'rewrite' => array( 'slug' => 'group' ),
-			) );
-
 	}
 
 	/**
